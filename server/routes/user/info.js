@@ -133,7 +133,7 @@ router.delete('/:id', (req, res) => {
 
 
 router.delete('/:USER_ID', (req, res) => {
-  console.log(req.params.USER_ID);
+ // console.log(req.params.USER_ID);
 
   User.findOne({ USER_ID: req.params.USER_ID })
     .then(user => user.remove()

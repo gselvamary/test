@@ -107,7 +107,7 @@ router.post('/addtopic', (req, res) => {
       if (Topic.countDocuments(function (err, count) {
         if (count === 0) {
           TOPIC_ID_new = 101 + count;
-          console.log(TOPIC_ID_new);
+          //   console.log(TOPIC_ID_new);
           const newTopic = new Topic({
             TOPIC_ID: TOPIC_ID_new,
             CAT_ID: req.body.CAT_ID,
@@ -126,7 +126,7 @@ router.post('/addtopic', (req, res) => {
             Topic.find({}).sort({ TOPIC_ID: -1 }).limit(1).then(topic => {
               if (topic) {
                 TOPIC_ID_new = topic[0].TOPIC_ID + 1;
-                console.log(TOPIC_ID_new);
+                //  console.log(TOPIC_ID_new);
                 const newTopic = new Topic({
                   TOPIC_ID: TOPIC_ID_new,
                   TOPIC_NAME: req.body.TOPIC_NAME,
@@ -229,7 +229,7 @@ router.delete('/:id', (req, res) => {
 
 
 router.delete('/:USER_ID', (req, res) => {
-  console.log(req.params.USER_ID);
+  // console.log(req.params.USER_ID);
 
   User.findOne({ USER_ID: req.params.USER_ID })
     .then(user => user.remove()
